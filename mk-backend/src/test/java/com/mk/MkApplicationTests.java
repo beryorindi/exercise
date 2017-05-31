@@ -1,4 +1,4 @@
-package com.mk.mk;
+package com.mk;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

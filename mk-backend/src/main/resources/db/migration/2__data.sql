@@ -1,0 +1,1 @@
+insert into employee (name, gender, dob, phone, image_url) values ('Bery Orindi', 'male', '1994-12-23', '085642871221', '../media/blank_profil.png');
