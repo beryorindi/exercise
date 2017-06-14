@@ -1,0 +1,44 @@
+<table>
+<form class="form-horizontal"
+  [formGroup]="formadd"
+>
+  <tr>
+    <td><label for="name">Nama : </label></td>
+    <td><input type="text" id="name" formControlName="name"></td>
+  </tr>
+  <tr>
+    <td><label for="phone">No Telepon : </label></td>
+    <td><input type="text" id="phone" formControlName="phone"></td>
+  </tr>
+  <tr>
+    <td><label for="gender">Gender : </label></td>
+    <td>
+      <select id="gender" formControlName="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+      </td>
+  </tr>
+  <tr>
+    <td><label for="dob">Tanggal Lahir : </label></td>
+    <td><input type="text" id="dob" formControlName="dob"></td>
+  </tr>
+  <tr>
+    <td><label for="gender">Image : </label></td>
+    <td>
+      <i id="upload" class="glyphicon glyphicon-camera" (click)="fileInput.click()"></i>
+      <img class="img" [src]="uploadURL" (click)="fileInput.click()">
+      <input #fileInput  name="imageUrl" id="imageUrl" type="file" 
+                    (change)="imgProcess($event)" accept="image/*" 
+                    formControlName="imageUrl"/>
+    </td>
+  </tr>
+  <tr>
+    
+  </tr>
+  <button (click)="gotoEmployees()">Back</button>  
+  <input type="submit" name="submit" (click)="add(formadd.value)">
+  
+</form>
+
+</table>

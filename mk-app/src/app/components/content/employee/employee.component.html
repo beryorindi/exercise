@@ -1,0 +1,34 @@
+<table class="card-block">
+    <thead>
+    <tr class="">
+      <th>Nama</th>
+      <th>Jenis Kelamin</th>
+      <th>No. Telp</th>
+      <th>Tanggal Lahir</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="row" *ngFor="let employee of employees">
+      <td class="">{{ employee.name }}</td>
+      <td class="">{{ employee.gender }}</td>
+      <td class="">{{ employee.phone }}</td>
+      <td class="">{{ employee.dob }}</td>
+      <td>
+        <button (click)="onSelect(employee)"class="btn btn-warning"><i class="icon-eye-open"></i>lihat</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-primary" ><i class="icon-edit icon-white"></i>edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button (click)="onDelete(employee)" class="btn btn-danger" ><i class="icon-trash ">Hapus</i></button>
+      </td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="popup" *ngIf="delete">
+      <div class = "popup-content">
+            <div id="Modal">
+                <p>Are you sure want to delete ?</p>
+                <button type="button" class="btn btn-danger" (click)="toggleDelete()">No</button>
+                <button type="button" class="btn btn-success" >Yes</button>
+            </div>
+      </div>
+</div>
+<button routerLink="/add_employee">Add</button>
