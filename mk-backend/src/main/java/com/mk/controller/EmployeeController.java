@@ -42,5 +42,4 @@ public class EmployeeController {
 	public void deleteEmployee( @PathVariable("id") String id) {
 		employeeRepo.delete(id);
 	}
-		
 }

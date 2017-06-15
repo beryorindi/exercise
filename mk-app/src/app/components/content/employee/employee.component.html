@@ -15,7 +15,7 @@
       <td class="">{{ employee.dob }}</td>
       <td>
         <button (click)="onSelect(employee)"class="btn btn-warning"><i class="icon-eye-open"></i>lihat</button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn btn-primary" ><i class="icon-edit icon-white"></i>edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button (click)="onEdit(employee)" class="btn btn-primary" ><i class="icon-edit icon-white"></i>edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
         <button (click)="onDelete(employee)" class="btn btn-danger" ><i class="icon-trash ">Hapus</i></button>
       </td>
     </tr>

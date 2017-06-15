@@ -18,6 +18,10 @@ const employeeRoutes: Routes = [
     path: 'employee/:id',
     component: EmployeeDetailComponent,
   },
+  {
+    path: 'edit_employee/:id',
+    component: EmployeeFormComponent,
+  },
   
 ];
 

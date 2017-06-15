@@ -4,16 +4,16 @@
 >
   <tr>
     <td><label for="name">Nama : </label></td>
-    <td><input type="text" id="name" formControlName="name"></td>
+    <td><input type="text" id="name" formControlName="name" [ngModel]="employee?.name"></td>
   </tr>
   <tr>
     <td><label for="phone">No Telepon : </label></td>
-    <td><input type="text" id="phone" formControlName="phone"></td>
+    <td><input type="text" id="phone" formControlName="phone" [ngModel]="employee?.phone"></td>
   </tr>
   <tr>
     <td><label for="gender">Gender : </label></td>
     <td>
-      <select id="gender" formControlName="gender">
+      <select id="gender" formControlName="gender" [ngModel]="employee?.gender">
         <option value="male">Male</option>
         <option value="female">Female</option>
       </select>
@@ -21,7 +21,7 @@
   </tr>
   <tr>
     <td><label for="dob">Tanggal Lahir : </label></td>
-    <td><input type="text" id="dob" formControlName="dob"></td>
+    <td><input type="text" id="dob" formControlName="dob" [ngModel]="employee?.dob"></td>
   </tr>
   <tr>
     <td><label for="gender">Image : </label></td>
@@ -37,7 +37,7 @@
     
   </tr>
   <button (click)="gotoEmployees()">Back</button>  
-  <input type="submit" name="submit" (click)="add(formadd.value)">
+  <input type="submit" name="submit" (click)="save(formadd.value)">
   
 </form>
 

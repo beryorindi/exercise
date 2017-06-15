@@ -33,17 +33,11 @@ export class EmployeeService {
     return this.employees.asObservable();
   }
 
-  getEmployee(id: String) {
-    return this.employeePromise
-      .then(employees => employees.find(employee => employee.id === id));
-  }
-
-  selectEmployee(employee) {
-    this.selectedEmployee.next(employee);
+  getEmployee(id) {
+    return this._employees.find(employee => employee.id == id);
   }
 
   getSelectedEmployee() {
-    //console.log(this.selectedEmployee.asObservable());
     return this.selectedEmployee.asObservable();
   }
 
@@ -56,6 +50,21 @@ export class EmployeeService {
         .map(response => response.json())
         .subscribe(data => this._employees.push(data))
     
+    this.employees.next(this._employees);
+  }
+
+  update(employee) {
+    let body = JSON.stringify(employee);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    this.http.put(this.serverURL, body, options)
+        .map(response => response.json())
+        .subscribe(data => this._employees
+          .forEach((emp, i) => {
+            if (emp.id === employee.id) { this._employees[i] = data; }
+          })
+    )
     this.employees.next(this._employees);
   }
 

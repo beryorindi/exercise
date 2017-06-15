@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ContentComponent } from './components/content/content.component';
+import { ScheduleComponent } from './components/content/schedule/schedule.component';
 
 
 
@@ -21,7 +22,8 @@ import { ContentComponent } from './components/content/content.component';
     AppComponent,
     SidebarComponent,
     HeaderComponent,
-    ContentComponent   
+    ContentComponent,
+    ScheduleComponent   
     
   ],
   imports: [

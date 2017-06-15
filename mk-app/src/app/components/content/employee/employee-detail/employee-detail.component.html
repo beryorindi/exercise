@@ -1,23 +1,23 @@
 <table>
   <tr>
     <td><label for="name">Nama : </label></td>
-    
+    <td>{{ employee.name }}</td>
   </tr>
   <tr>
     <td><label for="phone">No Telepon : </label></td>
-
+    <td>{{ employee.phone }}</td>
   </tr>
   <tr>
     <td><label for="gender">Gender : </label></td>
-
+    <td>{{ employee.gender }}</td>
   </tr>
   <tr>
     <td><label for="dob">Tanggal Lahir : </label></td>
-    
+    <td>{{ employee.dob }}</td>
   </tr>
   <tr>
     <td><label for="gender">Image : </label></td>
-
+    <td> <img [src]="employee.imageUrl"></td>
   </tr>
   <tr>
     

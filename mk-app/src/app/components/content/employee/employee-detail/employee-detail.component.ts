@@ -11,7 +11,7 @@ import { Employee } from '../../../../models/employee/employee.model';
   styleUrls: ['./employee-detail.component.css']
 })
 export class EmployeeDetailComponent implements OnInit {
-  employee : Employee;
+  private employee;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,11 +21,13 @@ export class EmployeeDetailComponent implements OnInit {
 
   ngOnInit() {
      this.route.params
+     .subscribe(params => {
+//       console.log(params['id']);
+        this.employee = this.employeeService.getEmployee(params['id']);
+     })
       // (+) converts string 'id' to a number
-      .switchMap((params: Params) => this.employeeService.getEmployee(params['id']))
-      .subscribe((employee: Employee) => this.employee = employee);
-
-      console.log(this.employee)
+      //.switchMap((params: Params) => this.employeeService.getEmployee(params['id']))
+      //.subscribe((employee: Employee) => this.employee = employee);
   }
 
   gotoEmployees() {

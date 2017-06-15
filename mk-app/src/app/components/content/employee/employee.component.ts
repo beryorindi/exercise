@@ -37,8 +37,13 @@ export class EmployeeComponent implements OnInit {
   }
 
   onSelect(employee: Employee) {
-    console.log(employee);
+    //console.log(employee);
     this.router.navigate(['/employee', employee.id]);
+  }
+
+  onEdit(employee: Employee) {
+    //console.log(employee);
+    this.router.navigate(['/edit_employee', employee.id]);
   }
   
   toggleDelete(){
@@ -51,7 +56,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   onDelete(employee){
-    console.log("try delete");
+    //console.log("try delete");
     this.employeeService.delete(employee.id);
     this.delete = false;
   }

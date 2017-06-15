@@ -10,6 +10,8 @@ import { EmployeeService } from '../../../../services/employee/employee.service'
   styleUrls: ['./employee-form.component.css']
 })
 export class EmployeeFormComponent implements OnInit {
+  private employee;
+  private id;
   formadd;
   private uploadURL;
 
@@ -21,8 +23,19 @@ export class EmployeeFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.uploadURL = '../../../../../media/blank_profil.png';
     this.emptyForm();
+    this.route.params
+     .subscribe(params => {
+        //console.log(params['id']);
+        this.employee = this.employeeService.getEmployee(params['id']);
+        this.id = params['id'];
+     })
+
+    if(!this.employee){
+      this.uploadURL = '../../../../../media/blank_profil.png';
+    }else{
+      this.uploadURL = this.employee.imageUrl;
+    }
   }
 
   emptyForm(){
@@ -42,10 +55,18 @@ export class EmployeeFormComponent implements OnInit {
     })
   }
 
-  add(employee) {
+  save(employee) {
     employee.imageUrl = this.uploadURL;
-    console.log(employee);
+    if(!this.employee){
+      //console.log("add");
     this.employeeService.save(employee);
+  }else{
+      employee.id = this.id;
+      //console.log(employee);
+      //console.log("update");
+      this.employeeService.update(employee);
+    }
+    this.gotoEmployees();
   }
 
   imgProcess(photo){
