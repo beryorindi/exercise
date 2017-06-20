@@ -7,6 +7,7 @@ import { SidebarModule } from 'ng-sidebar';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { EmployeeModule } from "./components/content/employee/employee.module";
+import { ScheduleModule } from "./components/content/schedule/schedule.module";
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -22,8 +23,7 @@ import { ScheduleComponent } from './components/content/schedule/schedule.compon
     AppComponent,
     SidebarComponent,
     HeaderComponent,
-    ContentComponent,
-    ScheduleComponent   
+    ContentComponent
     
   ],
   imports: [
@@ -33,7 +33,8 @@ import { ScheduleComponent } from './components/content/schedule/schedule.compon
     BrowserAnimationsModule,
     ReactiveFormsModule,
     SidebarModule.forRoot(),
-    EmployeeModule
+    EmployeeModule,
+    ScheduleModule
   ],
   providers: [
   ],

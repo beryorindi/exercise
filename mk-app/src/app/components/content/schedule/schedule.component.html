@@ -1,3 +1,20 @@
-<p>
-  schedule works!
-</p>
+<table class="card-block">
+    <thead>
+    <tr class="">
+      <th>Hari</th>
+      <th>Peride</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="row" *ngFor="let schedule of schedules">
+      <td class="">{{ schedule.day }}</td>
+      <td class="">{{ schedule.period }}</td>
+      <td>
+        <!--<button (click)="onSelect(employee)"class="btn btn-warning"><i class="icon-eye-open"></i>lihat</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button (click)="onEdit(employee)" class="btn btn-primary" ><i class="icon-edit icon-white"></i>edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button (click)="onDelete(employee)" class="btn btn-danger" ><i class="icon-trash ">Hapus</i></button> -->
+      </td>
+    </tr>
+    </tbody>
+</table>
+<button routerLink="/add_schedule">Tambah</button>

@@ -1,0 +1,34 @@
+<table>
+<form class="form-horizontal"
+  [formGroup]="formadd"
+>
+  <tr>
+    <td><label for="day">Hari : </label></td>
+    <td>
+      <select id="day" formControlName="day" [ngModel]="schedule?.day">
+        <option value="1">Senin</option>
+        <option value="2">Selasa</option>
+        <option value="3">Rabu</option>
+        <option value="4">Kamis</option>
+        <option value="5">Jumat</option>
+        <option value="6">Sabtu</option>
+        <option value="7">Minggu</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td><label for="period">Periode : </label></td>
+    <td>
+      <select id="period" formControlName="period" [ngModel]="schedule?.period">
+        <option value="pagi">Pagi</option>
+        <option value="siang">Siang</option>
+        <option value="sore">Sore</option>
+      </select>
+    </td>
+  </tr>
+  <button (click)="gotoSchedules()">Back</button>  
+  <input type="submit" name="submit" (click)="save(formadd.value)">
+  
+</form>
+
+</table>

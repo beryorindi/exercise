@@ -22,12 +22,8 @@ export class EmployeeDetailComponent implements OnInit {
   ngOnInit() {
      this.route.params
      .subscribe(params => {
-//       console.log(params['id']);
         this.employee = this.employeeService.getEmployee(params['id']);
-     })
-      // (+) converts string 'id' to a number
-      //.switchMap((params: Params) => this.employeeService.getEmployee(params['id']))
-      //.subscribe((employee: Employee) => this.employee = employee);
+     }) 
   }
 
   gotoEmployees() {

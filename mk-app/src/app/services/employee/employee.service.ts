@@ -10,13 +10,10 @@ export class EmployeeService {
   private serverURL;
   private employees: BehaviorSubject<Employee[]>;
   private _employees: Employee[];
-  private selectedEmployee: BehaviorSubject<Employee>;
-  private employeePromise = Promise.resolve(this._employees);
 
   constructor(private http: Http) { 
     this.serverURL = '/api/employees/';
     this.employees = new BehaviorSubject<Employee[]>([]);
-    this.selectedEmployee = new BehaviorSubject<Employee>(new Employee);
     this.load();
    }
 
@@ -35,10 +32,6 @@ export class EmployeeService {
 
   getEmployee(id) {
     return this._employees.find(employee => employee.id == id);
-  }
-
-  getSelectedEmployee() {
-    return this.selectedEmployee.asObservable();
   }
 
   save(employee) {
