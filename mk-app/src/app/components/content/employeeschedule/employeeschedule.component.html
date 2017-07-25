@@ -1,0 +1,18 @@
+<table border="1" >
+    <thead>
+    <tr class="">
+      <th></th>
+      <th></th>
+      <th>Karyawan</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="row" *ngFor="let schedule of schedules" >
+      <td class="">{{ schedule.day }}</td>
+      <td class="">{{ schedule.period }}</td>
+      <td class="" >
+        <app-employee-list [schedules]="schedule"></app-employee-list>
+      </td>
+    </tr>
+    </tbody>
+</table>

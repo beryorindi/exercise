@@ -12,9 +12,10 @@ import { Employee } from '../../../models/employee/employee.model';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  //private employeeObs : Observable<Employee[]>;
   private selectedEmployeeId : Employee;
+  dataSource = [];
   employees = [];
+  displayedColumns = [];
 
   @Output() selectedEmployee = new EventEmitter();
   private delete = false;
@@ -25,8 +26,18 @@ export class EmployeeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    //this.employeeObs = this.employeeService.get();
     this.getEmployees();
+    this.displayedColumns = ['name', 'gender', 'phone', 'dob'];
+    this.dataSource = this.employees;
+  }
+
+  connect() {
+    
+  }
+
+  disconnect() {
+    this.dataSource = null;
+    this.displayedColumns = [];
   }
 
   getEmployees() {
@@ -37,13 +48,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   onSelect(employee: Employee) {
-    //console.log(employee);
     this.router.navigate(['/employee', employee.id]);
-  }
-
-  onEdit(employee: Employee) {
-    //console.log(employee);
-    this.router.navigate(['/edit_employee', employee.id]);
   }
   
   toggleDelete(){
@@ -56,7 +61,6 @@ export class EmployeeComponent implements OnInit {
   }
 
   onDelete(employee){
-    //console.log("try delete");
     this.employeeService.delete(employee.id);
     this.delete = false;
   }

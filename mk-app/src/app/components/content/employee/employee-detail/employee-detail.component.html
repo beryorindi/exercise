@@ -1,27 +1,33 @@
-<table>
-  <tr>
-    <td><label for="name">Nama : </label></td>
-    <td>{{ employee.name }}</td>
-  </tr>
-  <tr>
-    <td><label for="phone">No Telepon : </label></td>
-    <td>{{ employee.phone }}</td>
-  </tr>
-  <tr>
-    <td><label for="gender">Gender : </label></td>
-    <td>{{ employee.gender }}</td>
-  </tr>
-  <tr>
-    <td><label for="dob">Tanggal Lahir : </label></td>
-    <td>{{ employee.dob }}</td>
-  </tr>
-  <tr>
-    <td><label for="gender">Image : </label></td>
-    <td> <img [src]="employee.imageUrl"></td>
-  </tr>
-  <tr>
-    
-  </tr>
-  <button (click)="gotoEmployees()">Back</button>  
+<md-card>
+  <md-toolbar color="primary">
+    {{ employee.name }}
+  </md-toolbar>
+  <md-card-content>
+    <md-grid-list cols="2" >
+      <md-grid-tile>
+        <img [src]="employee.imageUrl">
+      </md-grid-tile>
+      <md-grid-tile>
+        <md-list>
+          <md-list-item>
+            <h3 md-line>Gender</h3>
+            <p md-line class="secondary-text">{{ employee.gender }}</p>
+          </md-list-item>
+          <md-list-item>
+            <h3 md-line>No Telepon</h3>
+            <p md-line class="secondary-text">{{ employee.phone }}</p>
+          </md-list-item>
+          <md-list-item>
+            <h3 md-line>Tanggal Lahir</h3>
+            <p md-line class="secondary-text">{{ employee.dob }}</p>
+          </md-list-item>
+        </md-list>
+      </md-grid-tile>
+    </md-grid-list>
+    <button md-button (click)="gotoEmployees()">Back</button>  
+    <button md-button (click)="onEdit(employee)">Edit</button>
+  </md-card-content>
+</md-card>
 
-</table>
+
+  

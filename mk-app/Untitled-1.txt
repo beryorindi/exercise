@@ -1,0 +1,26 @@
+<!-- Container for sidebar(s) + page content -->
+    <ng-sidebar-container class="ng-sidebar-container--animate" _nghost-c0>
+
+      <!-- A sidebar -->
+      
+      <ng-sidebar [(opened)]="_opened"  #sidebar _nghost-c1>
+        <!-- <div aria-hidden="true" class="ng-sidebar__backdrop" tabindex="0"></div>    -->
+        <aside _ngcontent-c1 role="complementary" class="ng-sidebar--over ng-sidebar--opened ng-sidebar--animate" aria-hidden="false" aria-label="My sidebar">
+          <p>Sidebar contents</p>
+          <button (click)="sidebar.close()">Close sidebar</button>
+          <p><a closeSidebar>Closes the sidebar</a></p>
+          <ul>
+            <li><button routerLink="/employees">Karyawan</button></li>
+            <li><button routerLink="/schedules">Jadwal</button></li>
+            <li><button routerLink="/employeeschedule">Jadwal Karyawan</button></li>
+            <li></li>
+          </ul>
+        </aside>
+      
+      </ng-sidebar>
+
+      <!-- Page content -->
+      <button class="demo-header__toggle" (click)="sidebar.open()"></button>
+
+      
+</ng-sidebar-container>

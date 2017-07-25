@@ -1,0 +1,5 @@
+<ul *ngFor="let employee of employees">
+  <div *ngFor="let schedule of schedules">
+  <li  *ngIf="employee.schedules.id === schedule.id" >{{ employee.schedules }}</li>
+  </div>
+</ul>

@@ -1,5 +1,22 @@
-<app-sidebar></app-sidebar>
-<app-content></app-content>
+<md-sidenav-container class="example-container" fullscreen>
+  <md-sidenav #sidenav class="sidenav" >
+    <md-nav-list>  
+      <a md-list-item routerLink="/employees">Karyawan</a>
+      <a md-list-item routerLink="/schedules">Jadwal</a>
+      <!-- <a md-list-item routerLink="/employeeschedule">Jadwal Karyawan</a> -->
+      <hr>
+      <a md-list-item routerLink="/login">Login</a>
+      <button md-list-item md-button (click)="sidenav.toggle()">
+      Close sidenav
+    </button>
+    </md-nav-list>
 
-
-
+    
+  </md-sidenav>
+  <md-toolbar color="primary">
+    <button md-icon-button (click)="sidenav.toggle()">
+      <md-icon class="md-24">menu</md-icon>
+    </button>
+  </md-toolbar>      
+  <app-content></app-content>
+</md-sidenav-container>

@@ -4,6 +4,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { EmployeeService } from '../../../../services/employee/employee.service';
 
+import {MdInputModule} from '@angular/material';
+
 @Component({
   selector: 'app-employee-form',
   templateUrl: './employee-form.component.html',
@@ -66,6 +68,7 @@ export class EmployeeFormComponent implements OnInit {
       //console.log("update");
       this.employeeService.update(employee);
     }
+    
     this.gotoEmployees();
   }
 
@@ -76,7 +79,6 @@ export class EmployeeFormComponent implements OnInit {
       this.uploadURL = photo.target.result;
     }
     image.readAsDataURL(photo.target.files[0]);
-    
   }
 
   gotoEmployees() {

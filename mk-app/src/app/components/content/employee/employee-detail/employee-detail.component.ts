@@ -29,5 +29,9 @@ export class EmployeeDetailComponent implements OnInit {
   gotoEmployees() {
     this.router.navigate(['/employees']);
   }
+  
+  onEdit(employee: Employee) {
+    this.router.navigate(['/edit_employee', employee.id]);
+  }
 
 }

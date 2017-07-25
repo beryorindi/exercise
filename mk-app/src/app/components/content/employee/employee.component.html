@@ -1,34 +1,76 @@
-<table class="card-block">
-    <thead>
-    <tr class="">
-      <th>Nama</th>
-      <th>Jenis Kelamin</th>
-      <th>No. Telp</th>
-      <th>Tanggal Lahir</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="row" *ngFor="let employee of employees">
-      <td class="">{{ employee.name }}</td>
-      <td class="">{{ employee.gender }}</td>
-      <td class="">{{ employee.phone }}</td>
-      <td class="">{{ employee.dob }}</td>
-      <td>
-        <button (click)="onSelect(employee)"class="btn btn-warning"><i class="icon-eye-open"></i>lihat</button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button (click)="onEdit(employee)" class="btn btn-primary" ><i class="icon-edit icon-white"></i>edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button (click)="onDelete(employee)" class="btn btn-danger" ><i class="icon-trash ">Hapus</i></button>
-      </td>
-    </tr>
-    </tbody>
-</table>
+<md-card>
+  <md-toolbar color="primary">
+    Karyawan
+  </md-toolbar>
+  <md-card-content>
+    <!-- <md-table [dataSource]="dataSource">
+      <ng-container cdkColumnDef="name">
+        <md-header-cell *cdkHeaderCellDef> Nama </md-header-cell>
+        <md-cell *cdkCellDef="let row"> {{row.name}} </md-cell>
+      </ng-container>
+
+      <ng-container cdkColumnDef="gender">
+        <md-header-cell *cdkHeaderCellDef> Jenis Kelamin </md-header-cell>
+        <md-cell *cdkCellDef="let row"> {{row.gender}} </md-cell>
+      </ng-container>
+
+      <ng-container cdkColumnDef="phone">
+        <md-header-cell *cdkHeaderCellDef> No Telepon </md-header-cell>
+        <md-cell *cdkCellDef="let row"> {{row.phone}} </md-cell>
+      </ng-container>
+
+      <ng-container cdkColumnDef="dob">
+        <md-header-cell *cdkHeaderCellDef> Tanggal Lahir </md-header-cell>
+        <md-cell *cdkCellDef="let row"> {{row.dob}} </md-cell>
+      </ng-container>
+
+
+      <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+      <md-row *cdkRowDef="let employees; columns: displayedColumns"></md-row>
+
+    </md-table> -->
+    <div class="table-responsive">
+      <table class="table" >
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Jenis Kelamin</th>
+            <th>No. Telp</th>
+            <th>Tanggal Lahir</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees">
+            <td class="">{{ employee.name }}</td>
+            <td class="">{{ employee.gender }}</td>
+            <td class="">{{ employee.phone }}</td>
+            <td class="">{{ employee.dob }}</td>
+            <td>
+              <button md-mini-fab color="primary" (click)="onSelect(employee)">
+              <md-icon class="md-5">visibility</md-icon>
+            </button>
+              <button md-mini-fab color="warn" (click)="onDelete(employee)">
+              <md-icon class="md-5">delete</md-icon>
+            </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button md-mini-fab color="warn" routerLink="/add_employee">
+     <md-icon class="md-5">add</md-icon>
+    </button>
+
+  </md-card-content>
+</md-card>
 
 <div class="popup" *ngIf="delete">
-      <div class = "popup-content">
-            <div id="Modal">
-                <p>Are you sure want to delete ?</p>
-                <button type="button" class="btn btn-danger" (click)="toggleDelete()">No</button>
-                <button type="button" class="btn btn-success" >Yes</button>
-            </div>
-      </div>
+  <div class="popup-content">
+    <div id="Modal">
+      <p>Are you sure want to delete ?</p>
+      <button type="button" class="btn btn-danger" (click)="toggleDelete()">No</button>
+      <button type="button" class="btn btn-success">Yes</button>
+    </div>
+  </div>
 </div>
-<button routerLink="/add_employee">Add</button>

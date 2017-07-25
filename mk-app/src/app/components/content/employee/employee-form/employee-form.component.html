@@ -1,28 +1,57 @@
-<table>
-<form class="form-horizontal"
-  [formGroup]="formadd"
->
-  <tr>
-    <td><label for="name">Nama : </label></td>
-    <td><input type="text" id="name" formControlName="name" [ngModel]="employee?.name"></td>
-  </tr>
-  <tr>
-    <td><label for="phone">No Telepon : </label></td>
-    <td><input type="text" id="phone" formControlName="phone" [ngModel]="employee?.phone"></td>
-  </tr>
-  <tr>
-    <td><label for="gender">Gender : </label></td>
-    <td>
-      <select id="gender" formControlName="gender" [ngModel]="employee?.gender">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
-      </td>
-  </tr>
-  <tr>
-    <td><label for="dob">Tanggal Lahir : </label></td>
-    <td><input type="text" id="dob" formControlName="dob" [ngModel]="employee?.dob"></td>
-  </tr>
+<md-card>
+  <form class="form-horizontal" [formGroup]="formadd">
+    <md-toolbar color="primary">
+      Karyawan
+    </md-toolbar>
+    <md-grid-list cols="2">
+      <md-grid-tile>
+        <md-list>
+          <md-list-item>
+            <md-input-container>
+              <input mdInput placeholder="Nama" id="name" formControlName="name" [ngModel]="employee?.name">
+            </md-input-container>
+          </md-list-item>
+          <md-list-item>
+            <md-input-container>
+              <input mdInput placeholder="No Telepon" id="phone" formControlName="phone" [ngModel]="employee?.phone">
+            </md-input-container>
+          </md-list-item>
+          <md-list-item>
+            <md-select placeholder="Jenis Kelamin" formControlName="gender" [ngModel]="employee?.gender">
+              <md-option>None</md-option>
+              <md-option value="male">Male</md-option>
+              <md-option value="female">Female</md-option>
+            </md-select>
+          </md-list-item>
+          <md-list-item>
+            <md-input-container>
+              <input mdInput formControlName="dob" [ngModel]="employee?.dob" [mdDatepicker]="picker" placeholder="Tanggal Lahir">
+              <button mdSuffix [mdDatepickerToggle]="picker"></button>
+            </md-input-container>
+            <md-datepicker #picker></md-datepicker>
+          </md-list-item>
+        </md-list>
+      </md-grid-tile>
+      <md-grid-tile>
+        <md-list>
+          <md-list-item>
+            <i id="upload" class="glyphicon glyphicon-camera" (click)="fileInput.click()"></i>
+            <img class="img" [src]="uploadURL" (click)="fileInput.click()">
+          </md-list-item>
+          <md-list-item>
+            <input #fileInput name="imageUrl" id="imageUrl" type="file" (change)="imgProcess($event)" accept="image/*" formControlName="imageUrl"
+            />
+          </md-list-item>
+        </md-list>
+      </md-grid-tile>
+    </md-grid-list>
+
+    <button md-button (click)="gotoEmployees()">Back</button>
+    <button md-button (click)="save(formadd.value)">Submit</button>
+  </form>
+</md-card>
+<!-- 
+ 
   <tr>
     <td><label for="gender">Image : </label></td>
     <td>
@@ -36,9 +65,8 @@
   <tr>
     
   </tr>
-  <button (click)="gotoEmployees()">Back</button>  
-  <input type="submit" name="submit" (click)="save(formadd.value)">
+  
   
 </form>
 
-</table>
+</table>  -->

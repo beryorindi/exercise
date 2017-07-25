@@ -8,11 +8,18 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
 
 import { EmployeeService } from '../../../services/employee/employee.service';
 import { EmployeeRoutingModule } from './employee.routing';
+import { MaterialModule } from '@angular/material';
+import { MdNativeDateModule } from '@angular/material';
+import { CdkTableModule } from '@angular/cdk';
+
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    EmployeeRoutingModule
+    EmployeeRoutingModule,
+    MaterialModule,
+    MdNativeDateModule,
+    CdkTableModule
   ],
   exports: [
     EmployeeComponent,
